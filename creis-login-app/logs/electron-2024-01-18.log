@@ -1,0 +1,191 @@
+[2024-01-18 05:56:16.728] [info]  [autoUpdater] [setup] 当前版本:  1.2.1
+[2024-01-18 05:56:16.731] [info]  [autoUpdater] [setup] server:  https://industrydown1.fang.com/zzy/creisLogin/windows/
+[2024-01-18 05:56:17.133] [info]  [api] [setup] dynamic ipc port: 64203
+[2024-01-18 05:56:17.282] [info]  [awaken] [handleUrl] url: undefined
+[2024-01-18 05:56:17.283] [info]  [main] [startServer] options {
+  title: '中指云客户端',
+  env: 'prod',
+  port: 64204,
+  hostname: 'localhost',
+  workers: 1
+}
+[2024-01-18 05:56:17.285] [info]  [main] [url]: http://localhost:64204
+[2024-01-18 05:56:17.465] [info]  [api] [setup] server is listening on localhost:64203
+[2024-01-18 05:56:18.620] [info]  [main] [startServer] startRes: success
+[2024-01-18 05:56:18.985] [info]  [api] [setup] socket id:Ev4dOoMpRfbL9ZuxAAAB message cmd: store.get
+[2024-01-18 05:56:18.993] [info]  [api] [setup] socket id:Ev4dOoMpRfbL9ZuxAAAB message cmd: store.get
+[2024-01-18 05:56:18.994] [info]  [api] [setup] socket id:Ev4dOoMpRfbL9ZuxAAAB message cmd: store.get
+[2024-01-18 05:56:19.118] [info]  [request] /api/v1/yyw/getSysConfig
+[2024-01-18 05:56:19.120] [info]  开始检测更新
+[2024-01-18 05:56:19.157] [info]  [request] /api/v1/yyw/getSysConfig
+[2024-01-18 05:56:19.348] [info]  当前版本为最新版本
+[2024-01-18 05:56:19.357] [info]  [api] [setup] socket id:Ev4dOoMpRfbL9ZuxAAAB message cmd: store.set
+[2024-01-18 05:56:19.374] [info]  [request] {
+  url: '/api/v1/yyw/getSysConfig',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 05:56:19.403] [info]  [api] [setup] socket id:Ev4dOoMpRfbL9ZuxAAAB message cmd: store.set
+[2024-01-18 05:56:19.418] [info]  [request] {
+  url: '/api/v1/yyw/getSysConfig',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 05:56:19.419] [info]  [request] /api/v1/system/getSystemMessage
+[2024-01-18 05:56:19.420] [info]  [api] [setup] socket id:Ev4dOoMpRfbL9ZuxAAAB message cmd: system.getSystemMessage
+[2024-01-18 05:56:30.879] [info]  [request] {
+  url: '/api/v1/system/getSystemMessage',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 05:56:39.115] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 05:56:39.267] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 05:56:42.371] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 05:56:42.612] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 06:01:07.602] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 06:01:08.060] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 06:01:17.501] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 06:01:18.123] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 06:01:25.305] [info]  [request] /api/v1/passport/loginverifysms
+[2024-01-18 06:01:26.212] [info]  [request] {
+  url: '/api/v1/passport/loginverifysms',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 06:01:27.862] [info]  [request] /api/v1/loginpassport/getUserBySfut
+[2024-01-18 06:01:28.547] [info]  [request] {
+  url: '/api/v1/loginpassport/getUserBySfut',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 06:12:33.640] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-18 06:12:33.658] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-18 06:12:33.670] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-18 06:12:33.680] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-18 06:12:33.686] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-18 06:12:33.694] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-18 13:28:23.163] [info]  [autoUpdater] [setup] 当前版本:  1.2.1
+[2024-01-18 13:28:23.167] [info]  [autoUpdater] [setup] server:  https://industrydown1.fang.com/zzy/creisLogin/windows/
+[2024-01-18 13:28:23.360] [info]  [api] [setup] dynamic ipc port: 55873
+[2024-01-18 13:28:23.581] [info]  [awaken] [handleUrl] url: undefined
+[2024-01-18 13:28:23.582] [info]  [main] [startServer] options {
+  title: '中指云客户端',
+  env: 'prod',
+  port: 55874,
+  hostname: 'localhost',
+  workers: 1
+}
+[2024-01-18 13:28:23.583] [info]  [main] [url]: http://localhost:55874
+[2024-01-18 13:28:23.797] [info]  [api] [setup] server is listening on localhost:55873
+[2024-01-18 13:28:25.059] [info]  [main] [startServer] startRes: success
+[2024-01-18 13:28:25.419] [info]  [api] [setup] socket id:KMTVE9zquvpKeUhFAAAB message cmd: store.get
+[2024-01-18 13:28:25.427] [info]  [api] [setup] socket id:KMTVE9zquvpKeUhFAAAB message cmd: store.get
+[2024-01-18 13:28:25.428] [info]  [api] [setup] socket id:KMTVE9zquvpKeUhFAAAB message cmd: store.get
+[2024-01-18 13:28:25.560] [info]  开始检测更新
+[2024-01-18 13:28:25.561] [info]  [request] /api/v1/yyw/getSysConfig
+[2024-01-18 13:28:25.600] [info]  [request] /api/v1/yyw/getSysConfig
+[2024-01-18 13:28:25.752] [info]  [api] [setup] socket id:KMTVE9zquvpKeUhFAAAB message cmd: store.set
+[2024-01-18 13:28:25.762] [info]  当前版本为最新版本
+[2024-01-18 13:28:25.762] [info]  [request] {
+  url: '/api/v1/yyw/getSysConfig',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:28:25.806] [info]  [api] [setup] socket id:KMTVE9zquvpKeUhFAAAB message cmd: store.set
+[2024-01-18 13:28:25.812] [info]  [request] {
+  url: '/api/v1/yyw/getSysConfig',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:28:25.813] [info]  [request] /api/v1/system/getSystemMessage
+[2024-01-18 13:28:25.814] [info]  [api] [setup] socket id:KMTVE9zquvpKeUhFAAAB message cmd: system.getSystemMessage
+[2024-01-18 13:28:35.776] [info]  [request] {
+  url: '/api/v1/system/getSystemMessage',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:28:47.396] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 13:28:47.544] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:28:48.813] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 13:28:48.855] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:28:52.443] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 13:28:52.622] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:29:07.432] [info]  [request] /api/v1/passport/loginverifysms
+[2024-01-18 13:29:08.287] [info]  [request] {
+  url: '/api/v1/passport/loginverifysms',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:40:45.424] [info]  [autoUpdater] [setup] 当前版本:  1.2.1
+[2024-01-18 13:40:45.426] [info]  [autoUpdater] [setup] server:  https://industrydown1.fang.com/zzy/creisLogin/windows/
+[2024-01-18 13:40:45.608] [info]  [awaken] [handleUrl] url: undefined
+[2024-01-18 13:46:35.595] [info]  [autoUpdater] [setup] 当前版本:  1.2.1
+[2024-01-18 13:46:35.598] [info]  [autoUpdater] [setup] server:  https://industrydown1.fang.com/zzy/creisLogin/windows/
+[2024-01-18 13:46:35.765] [info]  [awaken] [handleUrl] url: undefined
+[2024-01-18 13:46:53.170] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 13:46:53.629] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:46:55.557] [info]  [request] /api/v1/passport/loginsendmsm
+[2024-01-18 13:46:55.738] [info]  [request] {
+  url: '/api/v1/passport/loginsendmsm',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 13:47:05.391] [info]  [request] /api/v1/passport/loginverifysms
+[2024-01-18 13:47:05.919] [info]  [request] {
+  url: '/api/v1/passport/loginverifysms',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-18 14:28:22.781] [info]  开始检测更新
+[2024-01-18 14:28:22.926] [info]  当前版本为最新版本
+[2024-01-18 15:28:22.473] [info]  开始检测更新
+[2024-01-18 15:28:22.627] [info]  当前版本为最新版本
+[2024-01-18 16:28:22.379] [info]  开始检测更新
+[2024-01-18 16:28:22.558] [info]  当前版本为最新版本
+[2024-01-18 17:28:22.353] [info]  开始检测更新
+[2024-01-18 17:28:22.535] [info]  当前版本为最新版本
+[2024-01-18 18:28:22.357] [info]  开始检测更新
+[2024-01-18 18:28:26.168] [info]  当前版本为最新版本
+[2024-01-18 19:28:22.357] [info]  开始检测更新
+[2024-01-18 19:28:24.378] [info]  当前版本为最新版本
+[2024-01-18 20:28:22.365] [info]  开始检测更新
+[2024-01-18 20:28:24.387] [info]  当前版本为最新版本
+[2024-01-18 21:28:22.374] [info]  开始检测更新
+[2024-01-18 21:28:24.654] [info]  当前版本为最新版本
+[2024-01-18 22:28:22.387] [info]  开始检测更新
+[2024-01-18 22:28:24.333] [info]  当前版本为最新版本
+[2024-01-18 23:28:22.457] [info]  开始检测更新
+[2024-01-18 23:28:24.742] [info]  当前版本为最新版本
+[2024-01-18 23:56:45.290] [info]  通过托盘退出

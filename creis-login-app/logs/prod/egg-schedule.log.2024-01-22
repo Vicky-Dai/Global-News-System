@@ -1,0 +1,24 @@
+2024-01-18 05:56:18,621 INFO 8216 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 81221380ms at 2024-01-19 04:30:00.001
+2024-01-18 05:56:18,622 INFO 8216 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 65021379ms at 2024-01-19 00:00:00.001
+2024-01-18 05:56:18,622 INFO 8216 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 65022378ms at 2024-01-19 00:00:01.000
+2024-01-18 05:56:18,386 INFO 11408 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2024-01-18 05:56:18,387 INFO 11408 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js
+2024-01-18 05:56:18,387 INFO 11408 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2024-01-18 13:28:25,060 INFO 20892 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 54094941ms at 2024-01-19 04:30:00.001
+2024-01-18 13:28:25,061 INFO 20892 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 37894940ms at 2024-01-19 00:00:00.001
+2024-01-18 13:28:25,061 INFO 20892 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 37895939ms at 2024-01-19 00:00:01.000
+2024-01-18 13:28:24,803 INFO 21116 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2024-01-18 13:28:24,803 INFO 21116 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js
+2024-01-18 13:28:24,803 INFO 21116 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2024-01-22 21:26:21,486 INFO 8184 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 25418516ms at 2024-01-23 04:30:00.002
+2024-01-22 21:26:21,486 INFO 8184 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 9218514ms at 2024-01-23 00:00:00.000
+2024-01-22 21:26:21,486 INFO 8184 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 9219514ms at 2024-01-23 00:00:01.000
+2024-01-22 21:26:21,248 INFO 496 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2024-01-22 21:26:21,248 INFO 496 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js
+2024-01-22 21:26:21,248 INFO 496 [egg-schedule]: register schedule E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2024-01-22 23:59:59,996 INFO 496 [Job#17059391999884113202434897001] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js executing by app
+2024-01-23 00:00:00,008 INFO 496 [Job#17059391999884113202434897001] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js execute succeed, used 10ms. 
+2024-01-22 23:59:59,994 INFO 8184 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 86400009ms at 2024-01-24 00:00:00.003
+2024-01-23 00:00:00,993 INFO 496 [Job#17059392009924113212472870001] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js executing by app
+2024-01-23 00:00:01,000 INFO 496 [Job#17059392009924113212472870001] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js execute succeed, used 7ms. 
+2024-01-23 00:00:00,994 INFO 8184 [Timer] E:\中指云\creis-login-app\resources\app.asar\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 86400008ms at 2024-01-24 00:00:01.002

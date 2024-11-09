@@ -1,0 +1,29 @@
+.formContainer{
+    position: fixed; /* 固定位置 */
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 300px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 居中元素 */
+    padding: 20px;
+}
+
+.logintitle{
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    font-size: 30px;
+    color: white;
+
+}
+
+.full-width-input {
+    width: 500px;
+
+}
+
+.Form{
+    width: "80%";
+    align-items: center; /* 水平居中 */
+}

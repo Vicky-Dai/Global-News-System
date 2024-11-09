@@ -1,0 +1,57 @@
+2024-01-18 05:56:18,986 INFO 11408 [base] [ipcCall] result: { err: null, data: null }
+2024-01-18 05:56:18,994 INFO 11408 [base] [ipcCall] result: { err: null, data: null }
+2024-01-18 05:56:18,995 INFO 11408 [base] [ipcCall] result: { err: null, data: null }
+2024-01-18 05:56:19,374 INFO 11408 [base] [ipcCall] result: { err: null, data: true }
+2024-01-18 05:56:19,417 INFO 11408 [base] [ipcCall] result: { err: null, data: true }
+2024-01-18 05:56:30,877 INFO 11408 [base] [ipcCall] result: {
+  err: null,
+  data: {
+    cpuid: 'AMD Ryzen 7 5800H with Radeon Graphics         ',
+    hardId: 'NABZN5PR',
+    modelNo: '0712',
+    netcardmac: '38:f3:ab:cd:44:f5,00:ff:65:e6:50:2e,00:ff:92:03:c8:c8,76:4c:a1:a4:0b:bf,f6:4c:a1:a4:0b:bf,74:4c:a1:a4:0b:bf,74:4c:a1:a4:0b:c0',
+    os: 'Windows 10 Home China',
+    osType: 'ia32',
+    osUserName: 'DESKTOP-5UQHM59',
+    serialNo: '00342-36204-25120-AAOEM',
+    userIp: '10.64.98.111'
+  }
+}
+2024-01-18 13:28:25,421 INFO 21116 [base] [ipcCall] result: { err: null, data: null }
+2024-01-18 13:28:25,428 INFO 21116 [base] [ipcCall] result: { err: null, data: null }
+2024-01-18 13:28:25,429 INFO 21116 [base] [ipcCall] result: { err: null, data: null }
+2024-01-18 13:28:25,759 INFO 21116 [base] [ipcCall] result: { err: null, data: true }
+2024-01-18 13:28:25,812 INFO 21116 [base] [ipcCall] result: { err: null, data: true }
+2024-01-18 13:28:35,774 INFO 21116 [base] [ipcCall] result: {
+  err: null,
+  data: {
+    cpuid: 'AMD Ryzen 7 5800H with Radeon Graphics         ',
+    hardId: 'NABZN5PR',
+    modelNo: '0712',
+    netcardmac: '38:f3:ab:cd:44:f5,00:ff:65:e6:50:2e,76:4c:a1:a4:0b:bf,f6:4c:a1:a4:0b:bf,00:ff:92:03:c8:c8,74:4c:a1:a4:0b:bf,74:4c:a1:a4:0b:c0',
+    os: 'Windows 10 Home China',
+    osType: 'ia32',
+    osUserName: 'DESKTOP-5UQHM59',
+    serialNo: '00342-36204-25120-AAOEM',
+    userIp: '10.64.98.111'
+  }
+}
+2024-01-22 21:26:21,853 INFO 496 [base] [ipcCall] result: { err: null, data: null }
+2024-01-22 21:26:21,860 INFO 496 [base] [ipcCall] result: { err: null, data: null }
+2024-01-22 21:26:21,861 INFO 496 [base] [ipcCall] result: { err: null, data: null }
+2024-01-22 21:26:22,176 INFO 496 [base] [ipcCall] result: { err: null, data: true }
+2024-01-22 21:26:22,230 INFO 496 [base] [ipcCall] result: { err: null, data: true }
+2024-01-22 21:26:31,894 INFO 496 [base] [ipcCall] result: {
+  err: null,
+  data: {
+    cpuid: 'AMD Ryzen 7 5800H with Radeon Graphics         ',
+    hardId: 'NABZN5PR',
+    modelNo: '0712',
+    netcardmac: '38:f3:ab:cd:44:f5,00:ff:65:e6:50:2e,76:4c:a1:a4:0b:bf,f6:4c:a1:a4:0b:bf,00:ff:92:03:c8:c8,74:4c:a1:a4:0b:bf,74:4c:a1:a4:0b:c0',
+    os: 'Windows 10 Home China',
+    osType: 'ia32',
+    osUserName: 'DESKTOP-5UQHM59',
+    serialNo: '00342-36204-25120-AAOEM',
+    userIp: '10.64.98.111'
+  }
+}

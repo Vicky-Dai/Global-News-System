@@ -1,0 +1,57 @@
+2024-01-18 05:56:18,373 INFO 11408 [egg:logger] init all loggers with options: {"dir":"C:\\Users\\dk158\\creis-login-app\\logs/prod","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"creis-login-app-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"application"}
+2024-01-18 05:56:18,387 INFO 11408 [egg-multipart] file mode enable
+2024-01-18 05:56:18,387 INFO 11408 [egg-multipart] will save temporary files to "C:\\Users\\dk158\\AppData\\Local\\Temp\\egg-multipart-tmp\\creis-login-app", cleanup job cron: "0 30 4 * * *"
+2024-01-18 05:56:18,594 INFO 11408 [egg-static] starting static serve / -> E:\中指云\creis-login-app\resources\app.asar\app\public
+2024-01-18 05:56:18,595 WARN 11408 [egg-security] Please set `match` or `ignore` on sub config
+2024-01-18 05:56:18,596 INFO 11408 [egg-security] use noopen middleware
+2024-01-18 05:56:18,596 INFO 11408 [egg-security] use nosniff middleware
+2024-01-18 05:56:18,596 INFO 11408 [egg-security] use xssProtection middleware
+2024-01-18 05:56:18,597 INFO 11408 [egg-security] use dta middleware
+2024-01-18 05:56:18,597 INFO 11408 [egg-security] compose 4 middlewares into one security middleware
+2024-01-18 05:56:18,604 WARN 11408 dumpConfig error: ENOENT: no such file or directory, mkdir 'C:\Users\dk158\creis-login-app\run/prod'
+2024-01-18 05:56:18,605 WARN 11408 dumpConfig router.json error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\router.json'
+2024-01-18 05:56:18,605 INFO 11408 [egg:core] dump config after load, 1ms
+2024-01-18 05:56:18,611 INFO 11408 [egg-watcher:application] watcher start success
+2024-01-18 05:56:18,613 WARN 11408 dumpConfig error: ENOENT: no such file or directory, mkdir 'C:\Users\dk158\creis-login-app\run/prod'
+2024-01-18 05:56:18,614 WARN 11408 dumpConfig router.json error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\router.json'
+2024-01-18 05:56:18,614 WARN 11408 dumpTiming error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\application_timing_11408.json'
+2024-01-18 05:56:18,614 INFO 11408 [egg:core] dump config after ready, 1ms
+2024-01-18 13:28:24,789 INFO 21116 [egg:logger] init all loggers with options: {"dir":"C:\\Users\\dk158\\creis-login-app\\logs/prod","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"creis-login-app-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"application"}
+2024-01-18 13:28:24,803 INFO 21116 [egg-multipart] file mode enable
+2024-01-18 13:28:24,803 INFO 21116 [egg-multipart] will save temporary files to "C:\\Users\\dk158\\AppData\\Local\\Temp\\egg-multipart-tmp\\creis-login-app", cleanup job cron: "0 30 4 * * *"
+2024-01-18 13:28:25,031 INFO 21116 [egg-static] starting static serve / -> E:\中指云\creis-login-app\resources\app.asar\app\public
+2024-01-18 13:28:25,032 WARN 21116 [egg-security] Please set `match` or `ignore` on sub config
+2024-01-18 13:28:25,032 INFO 21116 [egg-security] use noopen middleware
+2024-01-18 13:28:25,033 INFO 21116 [egg-security] use nosniff middleware
+2024-01-18 13:28:25,033 INFO 21116 [egg-security] use xssProtection middleware
+2024-01-18 13:28:25,034 INFO 21116 [egg-security] use dta middleware
+2024-01-18 13:28:25,034 INFO 21116 [egg-security] compose 4 middlewares into one security middleware
+2024-01-18 13:28:25,043 WARN 21116 dumpConfig error: ENOENT: no such file or directory, mkdir 'C:\Users\dk158\creis-login-app\run/prod'
+2024-01-18 13:28:25,044 WARN 21116 dumpConfig router.json error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\router.json'
+2024-01-18 13:28:25,044 INFO 21116 [egg:core] dump config after load, 1ms
+2024-01-18 13:28:25,050 INFO 21116 [egg-watcher:application] watcher start success
+2024-01-18 13:28:25,052 WARN 21116 dumpConfig error: ENOENT: no such file or directory, mkdir 'C:\Users\dk158\creis-login-app\run/prod'
+2024-01-18 13:28:25,053 WARN 21116 dumpConfig router.json error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\router.json'
+2024-01-18 13:28:25,053 WARN 21116 dumpTiming error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\application_timing_21116.json'
+2024-01-18 13:28:25,053 INFO 21116 [egg:core] dump config after ready, 1ms
+2024-01-22 21:26:21,235 INFO 496 [egg:logger] init all loggers with options: {"dir":"C:\\Users\\dk158\\creis-login-app\\logs/prod","encoding":"utf8","env":"prod","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":true,"outputJSON":false,"buffer":true,"appLogName":"creis-login-app-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{},"allowDebugAtProd":false,"enablePerformanceTimer":false,"type":"application"}
+2024-01-22 21:26:21,248 INFO 496 [egg-multipart] file mode enable
+2024-01-22 21:26:21,248 INFO 496 [egg-multipart] will save temporary files to "C:\\Users\\dk158\\AppData\\Local\\Temp\\egg-multipart-tmp\\creis-login-app", cleanup job cron: "0 30 4 * * *"
+2024-01-22 21:26:21,458 INFO 496 [egg-static] starting static serve / -> E:\中指云\creis-login-app\resources\app.asar\app\public
+2024-01-22 21:26:21,459 WARN 496 [egg-security] Please set `match` or `ignore` on sub config
+2024-01-22 21:26:21,459 INFO 496 [egg-security] use noopen middleware
+2024-01-22 21:26:21,460 INFO 496 [egg-security] use nosniff middleware
+2024-01-22 21:26:21,460 INFO 496 [egg-security] use xssProtection middleware
+2024-01-22 21:26:21,461 INFO 496 [egg-security] use dta middleware
+2024-01-22 21:26:21,461 INFO 496 [egg-security] compose 4 middlewares into one security middleware
+2024-01-22 21:26:21,469 WARN 496 dumpConfig error: ENOENT: no such file or directory, mkdir 'C:\Users\dk158\creis-login-app\run/prod'
+2024-01-22 21:26:21,469 WARN 496 dumpConfig router.json error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\router.json'
+2024-01-22 21:26:21,469 INFO 496 [egg:core] dump config after load, 0ms
+2024-01-22 21:26:21,476 INFO 496 [egg-watcher:application] watcher start success
+2024-01-22 21:26:21,478 WARN 496 dumpConfig error: ENOENT: no such file or directory, mkdir 'C:\Users\dk158\creis-login-app\run/prod'
+2024-01-22 21:26:21,478 WARN 496 dumpConfig router.json error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\router.json'
+2024-01-22 21:26:21,479 WARN 496 dumpTiming error: ENOENT: no such file or directory, open 'C:\Users\dk158\creis-login-app\run\prod\application_timing_496.json'
+2024-01-22 21:26:21,479 INFO 496 [egg:core] dump config after ready, 1ms
+2024-01-23 00:00:00,008 INFO 496 [egg-logrotator] clean all log before 31 days
+2024-01-23 00:00:01,000 INFO 496 [egg-logrotator] broadcast log-reload
+2024-01-23 00:00:01,000 INFO 496 [egg-logrotator] rotate files success by DayRotator, files ["C:\\Users\\dk158\\creis-login-app\\logs\\prod\\common-error.log -> C:\\Users\\dk158\\creis-login-app\\logs\\prod\\common-error.log.2024-01-22","C:\\Users\\dk158\\creis-login-app\\logs\\prod\\creis-login-app-web.log -> C:\\Users\\dk158\\creis-login-app\\logs\\prod\\creis-login-app-web.log.2024-01-22","C:\\Users\\dk158\\creis-login-app\\logs\\prod\\egg-web.log -> C:\\Users\\dk158\\creis-login-app\\logs\\prod\\egg-web.log.2024-01-22","C:\\Users\\dk158\\creis-login-app\\logs\\prod\\egg-schedule.log -> C:\\Users\\dk158\\creis-login-app\\logs\\prod\\egg-schedule.log.2024-01-22","C:\\Users\\dk158\\creis-login-app\\logs\\prod\\egg-agent.log -> C:\\Users\\dk158\\creis-login-app\\logs\\prod\\egg-agent.log.2024-01-22"]

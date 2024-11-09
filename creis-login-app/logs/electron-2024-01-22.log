@@ -1,0 +1,76 @@
+[2024-01-22 21:26:19.817] [info]  [autoUpdater] [setup] 当前版本:  1.2.1
+[2024-01-22 21:26:19.819] [info]  [autoUpdater] [setup] server:  https://industrydown1.fang.com/zzy/creisLogin/windows/
+[2024-01-22 21:26:19.987] [info]  [api] [setup] dynamic ipc port: 55736
+[2024-01-22 21:26:20.153] [info]  [awaken] [handleUrl] url: undefined
+[2024-01-22 21:26:20.154] [info]  [main] [startServer] options {
+  title: '中指云客户端',
+  env: 'prod',
+  port: 55737,
+  hostname: 'localhost',
+  workers: 1
+}
+[2024-01-22 21:26:20.155] [info]  [main] [url]: http://localhost:55737
+[2024-01-22 21:26:20.342] [info]  [api] [setup] server is listening on localhost:55736
+[2024-01-22 21:26:21.484] [info]  [main] [startServer] startRes: success
+[2024-01-22 21:26:21.851] [info]  [api] [setup] socket id:JWdLWNHE0_2vZVeIAAAB message cmd: store.get
+[2024-01-22 21:26:21.859] [info]  [api] [setup] socket id:JWdLWNHE0_2vZVeIAAAB message cmd: store.get
+[2024-01-22 21:26:21.860] [info]  [api] [setup] socket id:JWdLWNHE0_2vZVeIAAAB message cmd: store.get
+[2024-01-22 21:26:21.981] [info]  开始检测更新
+[2024-01-22 21:26:21.983] [info]  [request] /api/v1/yyw/getSysConfig
+[2024-01-22 21:26:22.012] [info]  [request] /api/v1/yyw/getSysConfig
+[2024-01-22 21:26:22.168] [info]  [api] [setup] socket id:JWdLWNHE0_2vZVeIAAAB message cmd: store.set
+[2024-01-22 21:26:22.176] [info]  [request] {
+  url: '/api/v1/yyw/getSysConfig',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-22 21:26:22.224] [info]  [api] [setup] socket id:JWdLWNHE0_2vZVeIAAAB message cmd: store.set
+[2024-01-22 21:26:22.230] [info]  [request] {
+  url: '/api/v1/yyw/getSysConfig',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-22 21:26:22.231] [info]  [request] /api/v1/system/getSystemMessage
+[2024-01-22 21:26:22.232] [info]  [api] [setup] socket id:JWdLWNHE0_2vZVeIAAAB message cmd: system.getSystemMessage
+[2024-01-22 21:26:24.201] [info]  当前版本为最新版本
+[2024-01-22 21:26:31.895] [info]  [request] {
+  url: '/api/v1/system/getSystemMessage',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-22 21:26:31.896] [info]  [request] /api/v1/loginpassport/getUserBySfut
+[2024-01-22 21:26:32.257] [info]  [request] {
+  url: '/api/v1/loginpassport/getUserBySfut',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-22 22:26:19.826] [info]  开始检测更新
+[2024-01-22 22:26:21.914] [info]  当前版本为最新版本
+[2024-01-22 22:26:32.767] [info]  [request] /api/v1/loginpassport/getUserBySfut
+[2024-01-22 22:26:33.473] [info]  [request] {
+  url: '/api/v1/loginpassport/getUserBySfut',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-22 23:26:19.824] [info]  开始检测更新
+[2024-01-22 23:26:26.204] [info]  当前版本为最新版本
+[2024-01-22 23:26:32.749] [info]  [request] /api/v1/loginpassport/getUserBySfut
+[2024-01-22 23:26:33.384] [info]  [request] {
+  url: '/api/v1/loginpassport/getUserBySfut',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-23 00:26:19.824] [info]  开始检测更新
+[2024-01-23 00:26:21.877] [info]  当前版本为最新版本
+[2024-01-23 00:26:32.766] [info]  [request] /api/v1/loginpassport/getUserBySfut
+[2024-01-23 00:26:33.445] [info]  [request] {
+  url: '/api/v1/loginpassport/getUserBySfut',
+  status: 200,
+  meta: { code: 1, message: '' }
+}
+[2024-01-23 00:45:19.228] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-23 00:45:19.251] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-23 00:45:19.259] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-23 00:45:19.267] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-23 00:45:24.331] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}
+[2024-01-23 00:45:24.335] [info]  render-process-gone:{"reason":"killed","exitCode":1073807364}

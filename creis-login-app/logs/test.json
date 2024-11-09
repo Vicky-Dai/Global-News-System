@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "love u data change 补丁",
+      "author": "John Doe",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "author": "mimi",
+      "views": 200
+    },
+    {
+      "id": "51f7",
+      "title": "test",
+      "author": "mimi"
+    },
+    {
+      "id": "9786",
+      "title": "test",
+      "author": "mimi"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ]
+}

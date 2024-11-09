@@ -1,0 +1,13 @@
+@import '~antd/dist/antd.css';
+::-webkit-scrollbar {width:5px;height:5px;position:absolute;}
+::-webkit-scrollbar-thumb {background-color:#1890ff}
+::-webkit-scrollbar-track {background-color: #ddd;}
+
+li{
+  width: 100px;
+  background-color: yellow;
+  
+} 
+
+/*CSS文件在网页上会插入到<head>标签里面通过<style>样式完成的，后面的会覆盖前面的，比如说App.css和Test.css都各自对li进行了样式构建，这样后者会覆盖前面的，从而导致互相影响*/
+/*module.css会自动生成一个style对象（不管你有没有倒入），所以来说如果你不倒入，还是按照module文件中的名字来使用，是无法更改样式的，一定记得导入style对象，然后用.来访问对象属性，通过键来取值*/
