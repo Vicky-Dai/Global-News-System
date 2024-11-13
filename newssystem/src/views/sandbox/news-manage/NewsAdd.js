@@ -1,28 +1,40 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { PageHeader } from '@ant-design/pro-components'
-import { Steps, Button, Form, Input, Select } from "antd";
+import { Steps, Button, Form, Input, Select, message, notification, Space } from "antd";
 import style from './News.module.css'
 import axios from 'axios'
 import NewsEditor from '../../../components/news-manage/NewsEditor';
-
+import{ useNavigate, useLocation } from 'react-router-dom'
 
 const {Option} = Select;
 
 const description = 'This is a description.';
-export default function NewsAdd() {
+
+export default function NewsAdd(props) {
   const [currentStep, setcurrentStep] = useState(0)
   const [categoryList, setcategoryList] = useState([])
+  const [formInfo, setformInfo] = useState("")
+  const [content, setContent] = useState("")
+  const User = JSON.parse(localStorage.getItem("token")) /* 用于获取当前新闻的各种信息，与user相关的 */
+  const [api, contextHolder] = notification.useNotification();
   
   const handleNext = () => {
     if(currentStep===0){
       NewsForm.current.validateFields().then(res=>{
-        console.log(res)
+        // console.log(res, "NewsForm.current") /* form的数据打印  */
+        setformInfo(res)
         setcurrentStep(currentStep+1)
+        // console.log(User)
       }).catch(error=>{
         console.log(error)
       })
     }else{
-      setcurrentStep(currentStep+1)
+      console.log(formInfo, content)
+      if(content===""||content.trim()==="<p></p>"){ /* 這裡有個小坑，console里面显示的<p></p>后面是有个空格的 */
+        message.error("新闻内容不能为空")
+      }else{
+        setcurrentStep(currentStep+1)
+      }
     }
     
     /* 下一步要校验 */
@@ -39,12 +51,52 @@ export default function NewsAdd() {
   const NewsForm = useRef(null) /* 对当前form做ref绑定 */
   /* 最下方对于useRef的理解 */
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     axios.get("/categories").then(res=>{
-      console.log(res.data)
+      // console.log(res.data, "test /categories")
       setcategoryList(res.data)
     })
   },[])
+
+  const handleSave = (auditState) => {
+    axios.post('/news',{
+      ...formInfo,
+      /* "title": "千锋教育",
+      "categoryId" :  3,  这俩从formInfo来*/
+      "content": content,
+      "region": User.region?User.region:"全球", /* true就显示region，false（为空）就是全球 */
+      "author": User.username,
+      "roleId": User.roleId,
+      "auditState": auditState, /* 0草稿箱 1待审核 2审核通过 3审核驳回 */
+      "publishState": 0, /* 默认未发布 */
+      "createTime": Date.now(),
+      "star": 0,
+      "view": 0,
+      // "id": "1", id post自增长
+      // "publishTime": 0 /* 还没发布 */
+    }).then(res=>{
+      navigate(auditState===0?'/news-manage/draft':'/audit-manage/list') /* 跳转页面 */
+
+      // api.info({ /* 一个简单的提示 */
+      //   message: ` 通知 `,
+      //   description:
+      //     `您可以到${auditState===0?'草稿箱':'审核列表'}中查看您的新闻`,
+      //   placement:'bottomRight',
+      // });
+      openNotification('bottomRight') /* 为什么弹不出来？？ */
+    })
+  }
+
+  const openNotification = (placement) => {
+    api.info({
+      message: `Notification ${placement}`,
+      description:
+        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      placement,
+    });
+  }
 
   return (
     <div>
@@ -54,7 +106,7 @@ export default function NewsAdd() {
           title="撰写新闻"
           subTitle="This is a subtitle"
         />
-        <Steps
+        <Steps /* antd步骤条 */
           current={currentStep}
           items={[
             {
@@ -74,7 +126,7 @@ export default function NewsAdd() {
         />
 
         <div style = {{marginTop: "50px"}}>
-          <div className={currentStep===0?'': style.active}>
+          <div className={currentStep===0?'': style.active}> {/* style.active是控制是否隐藏的 0的时候说明第一个页面要显示 */}
             <Form
               name="basic"
               labelCol={{
@@ -128,31 +180,44 @@ export default function NewsAdd() {
           </div>
 
           <div className={currentStep===1?'': style.active}>
-            <NewsEditor></NewsEditor>
+            <NewsEditor getContent={(value)=>{
+                // console.log(value)
+                setContent(value)
+            }}></NewsEditor>
           </div>
-          <div className={currentStep===2?'': style.active}>3333333333333</div>
+          <div className={currentStep===2?'': style.active}></div>
 
         </div>
 
-        <div style={{marginTop:"50px"}}>
-          {
-            currentStep === 2 && <span>
-              <Button type="primary">保存草稿箱</Button>
-              <Button danger>提交审核</Button>
-            </span>
-          }
-          {
-            currentStep<2 && <Button type="primary" onClick = {handleNext}>下一步</Button>
-          }
-          {
-            currentStep>0 && <Button onClick = {handlePrevious} >上一步</Button>
-          }
-          
-        </div>
+        <>
+          {contextHolder}
+          <Space>
+            <div style={{marginTop:"50px"}}> {/* 这里写的是不同页面的button */}
+                {
+                  currentStep === 2 && <span>
+                    <Button type="primary" onClick={()=>handleSave(0)}>保存草稿箱</Button>
+                    <Button danger onClick={()=>handleSave(1)}>提交审核</Button>
+                  </span>
+                }
+                {
+                  currentStep<2 && <Button type="primary" onClick = {handleNext}>下一步</Button>
+                }
+                {
+                  currentStep>0 && <Button onClick = {handlePrevious} >上一步</Button>
+                }
+            
+            </div>
 
+          </Space>
+        
+        </>
+
+        
     </div>
   )
 }
+  
+
 
   /* 在 React 中，ref 是一个特殊的属性，用于引用某个 DOM 元素或组件实例，从而允许直接访问该元素或组件。NewsForm 在这个语句中实际上是一个 ref 对象，通过 ref 赋值后，NewsForm 中就存储了对应的 DOM 或组件实例。 */
  /* 在 Ant Design 中，validateFields 是 Form 实例上的一个方法，通常配合 ref 一起使用，用来执行表单的验证。

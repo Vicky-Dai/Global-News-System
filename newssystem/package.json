@@ -10,6 +10,7 @@
     "antd": "^5.21.6",
     "axios": "^1.7.7",
     "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
     "http-proxy-middleware": "^3.0.2",
     "node-sass": "^9.0.0",
     "nprogress": "^0.2.0",
