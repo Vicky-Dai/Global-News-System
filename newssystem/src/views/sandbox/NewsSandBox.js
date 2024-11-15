@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SideMenu from '../../components/sandbox/SideMenu'
 import TopHeader from '../../components/sandbox/TopHeader'
 
@@ -8,17 +8,23 @@ import NewsRouter from '../../components/sandbox/NewsRouter'
 
 import NProgress from 'nprogress'
 import'nprogress/nprogress.css'
+import { useLocation } from 'react-router-dom';
 const { Content } = Layout;
 
 
 export default function NewsSandBox(){
-    NProgress.start()
-    console.log("nprogress运行了")
+    // const [location, setlocation] = useState([]) /* 用于获取当前的location */   
+    const location = useLocation();
+   
     useEffect(() => {
+      NProgress.start()
+      console.log("nprogress运行了") /* 这个放在useEffect外面就会产生，仅仅done一次然后一直显示着进度条，我目前认为是因为在initial render的时候，react认为必须要有这个成分 */
       NProgress.done()
       console.log("nprogress done了1111")  /* ？？？？为什么没有在渲染结束触发done呢  目前发现的问题是，路由重定向之后，只会渲染和重新执行定向的组件，比如home，但是这里的代码似乎是不会在执行的，我的两个log在切换页面的时候都没有打印*/
-    }) /* 这个是每次修改路由的时候，触发了外层路由，重新render NewsSandBox，就触发一次这个进度条 */
+    },[location]) /* 这个是每次修改路由的时候，触发了外层路由，重新render NewsSandBox，就触发一次这个进度条 */
     
+
+
     return (
         <Layout> {/* antd组件 本身控制页面的格式 */}
                 
@@ -45,7 +51,7 @@ export default function NewsSandBox(){
                         <Route path="/right-manage/role/list" element={<RoleList />} />
                         <Route path="/user-manage/list" element={<UserList />} /> 
                     </Routes> */}
-                    <NewsRouter></NewsRouter>
+                    <NewsRouter ></NewsRouter>
                 </Content>  
             </Layout>
         </Layout>
