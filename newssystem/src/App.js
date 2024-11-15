@@ -19,3 +19,6 @@ function App() {
 }
 
 export default App
+
+/* 为什么APP和inderouter都有路由？app是控制软件上层，就是说你刚来是直接就可以登录进去还是说要先进登录页面
+Indexrouter是为了控制newssandbox 请去看架构图 */

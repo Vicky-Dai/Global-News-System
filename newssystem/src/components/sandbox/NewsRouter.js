@@ -15,6 +15,7 @@ import Unpublished from '../../views/sandbox/publish-manage/Unpublished'
 import Published from '../../views/sandbox/publish-manage/Published'
 import Sunset from '../../views/sandbox/publish-manage/Sunset'
 import axios from 'axios'
+import NewsPreview from '../../views/sandbox/news-manage/NewsPreview'
 
 const LocalRouterMap = {
     "/home":<Home/>,
@@ -28,7 +29,8 @@ const LocalRouterMap = {
     "/audit-manage/list": <AuditList/>,
     "/publish-manage/unpublished": <Unpublished/>,
     "/publish-manage/published": <Published/>,
-    "/publish-manage/sunset": <Sunset/>
+    "/publish-manage/sunset": <Sunset/>,
+    "/news-manage/preview/:id": <NewsPreview/>, /* 为什么就是没有显示？？？ */
 
 
 }
@@ -51,7 +53,7 @@ export default function NewsRouter() {
     const{role:{rights}} = JSON.parse(localStorage.getItem("token"))
 
     const checkRoute = (item) => {
-        return LocalRouterMap[item.key] && item.pagepermisson /* 检查权限列表里的删除和编辑开关（pagepermission） */
+        return LocalRouterMap[item.key] && (item.pagepermisson||item.routepagepermisson) /* 检查权限列表里的删除和编辑开关（pagepermission） */
     } /* 这样即使是我直接在导航栏里面用URL进去，如果没有权限也进不去，因为这个route根本不会创建（下方），也就不会显示 */
 
     const checkUserPermission = (item) => {  /* 检查当前用户是否有这个权限 */
@@ -69,11 +71,12 @@ export default function NewsRouter() {
                     // element={LocalRouterMap[item.key]} ></Route>
                     {
                         if(checkRoute(item) && checkUserPermission(item)){ /* 第一个函数判断当前权限列表管理是否打开 第二个函数是当前用户是否有这个权限 */
+                            // console.log("checkRoute item", item)
                             return (<Route path={item.key} key={item.key}
                                 element={LocalRouterMap[item.key]} ></Route>)
 
                         }
-                        return (<Route path="/noPermission" element={<NoPermission />} />)
+                        return null  /* 原先是这样，没有key 所以报错(<Route path="/noPermission" element={<NoPermission />} />) */
                     } /* [NoPermission] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment> */
                 )
             } {/* 路由是模糊匹配的， */}
@@ -123,3 +126,6 @@ handleOk 中，你修改的是角色的权限数据（rights），这些权限�
 
 JSX 本质上是 JavaScript 的语法糖，用于描述 UI 结构。在 JSX 中，必须返回一个表达式（JavaScript 表达式），而 if 语句本身是控制结构，不能作为一个表达式直接返回。如果你希望在 JSX 中进行条件渲染，必须使用 JavaScript 表达式（如三元运算符或逻辑与运算符）来替代 if。
 component文件中return 语句中的部分就是 JSX 语法，用于描述 React 组件的 UI 结构。除了 return 之外，React 组件中的其他部分通常使用的是 JavaScript 语法。React 组件本质上是一个 JavaScript 函数，它结合了 JSX 和 JavaScript 逻辑。*/
+
+/* 在你的代码中，backRouteList.map 的逻辑只会在 NewsRouter 组件重新渲染时执行。路由切换时，React Router 会根据当前路径匹配相应的 Route 组件，并渲染对应的组件，而不会重新执行 backRouteList.map 的逻辑，除非 NewsRouter 组件本身重新渲染。
+当用户点击不同的路由链接时，React Router 会根据当前路径匹配相应的 Route 组件，并渲染对应的组件。这个过程是由 React Router 内部机制处理的，而不是重新执行 backRouteList.map 的逻辑。 */
