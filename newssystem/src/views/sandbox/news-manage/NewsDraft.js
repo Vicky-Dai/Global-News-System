@@ -30,6 +30,11 @@ export default function NewsDraft() {
     {
       title: '新闻标题',
       dataIndex: 'title',
+      render: (title, item)=>{
+        // console.log("title是什么", title)
+        // console.log("item是什么", item)
+        return <a href={`/news-manage/preview/${item.id}`} params={{item}}>{title}</a>
+      }
     },
     {
       title: '作者',
@@ -81,6 +86,7 @@ export default function NewsDraft() {
     // // 这是在过滤 判断当前dataid是否等于item.id，如果是的话就删除，否则保留
     axios.delete(`http://localhost:5000/news/${item.id}`)
   }
+
   
 
 
@@ -99,3 +105,4 @@ export default function NewsDraft() {
   
 }
 
+// render 函数的参数是由 Table 组件自动传递的，item 是 dataSource 中的每一行数据对象。

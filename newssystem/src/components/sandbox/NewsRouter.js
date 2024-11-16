@@ -53,7 +53,7 @@ export default function NewsRouter() {
     const{role:{rights}} = JSON.parse(localStorage.getItem("token"))
 
     const checkRoute = (item) => {
-        return LocalRouterMap[item.key] && (item.pagepermisson||item.routepagepermisson) /* 检查权限列表里的删除和编辑开关（pagepermission） */
+        return LocalRouterMap[item.key] && (item.pagepermisson||item.routepermisson) /* 检查权限列表里的删除和编辑开关（pagepermission） */
     } /* 这样即使是我直接在导航栏里面用URL进去，如果没有权限也进不去，因为这个route根本不会创建（下方），也就不会显示 */
 
     const checkUserPermission = (item) => {  /* 检查当前用户是否有这个权限 */
