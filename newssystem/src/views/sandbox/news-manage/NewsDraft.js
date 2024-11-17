@@ -45,7 +45,7 @@ export default function NewsDraft() {
       dataIndex: 'category',
       render:(category)=>{
         return <b>{category.title}</b> /* 这里的category是一个对象，包含了title属性 */
-      } /* 是的，render 会替换 dataIndex 原本要显示的内容。dataIndex 指定了从数据源对象中读取哪个属性，而 render 函数则允许你自定义如何显示这个属性的值 */
+      } /* render 会替换 dataIndex 原本要显示的内容。dataIndex 指定了从数据源对象中读取哪个属性，而 render 函数则允许你自定义如何显示这个属性的值 */
     },
     
     {
