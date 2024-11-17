@@ -71,7 +71,7 @@ export default function NewsAdd(props) {
       "roleId": User.roleId,
       "auditState": auditState, /* 0草稿箱 1待审核 2审核通过 3审核驳回 */
       "publishState": 0, /* 默认未发布 */
-      "createTime": Date.now(),
+      "createTime": Date.now(), /* 自动获取当前时间 */
       "star": 0,
       "view": 0,
       // "id": "1", id post自增长
