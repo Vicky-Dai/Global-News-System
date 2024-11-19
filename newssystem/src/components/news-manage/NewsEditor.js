@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Editor} from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import {convertToRaw } from 'draft-js';
@@ -10,6 +10,11 @@ export default function NewsEditor(props) {
   // const onEditorStateChange = (editorState) => {
   //   seteditorState(editorState)
   // }
+  useEffect(()=>{
+    // console.log(props.content)
+    // html===>draft
+    
+  })
   const [editorState, setEditorState] = useState("")
 
   const onEditorStateChange = (editorState) => {
@@ -36,3 +41,5 @@ export default function NewsEditor(props) {
     </div>
   )
 }
+
+// 这是从npm下载过来的富文本编辑器

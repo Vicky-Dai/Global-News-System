@@ -16,6 +16,7 @@ import Published from '../../views/sandbox/publish-manage/Published'
 import Sunset from '../../views/sandbox/publish-manage/Sunset'
 import axios from 'axios'
 import NewsPreview from '../../views/sandbox/news-manage/NewsPreview'
+import NewsUpdate from '../../views/sandbox/news-manage/NewsUpdate'
 
 const LocalRouterMap = {
     "/home":<Home/>,
@@ -30,7 +31,9 @@ const LocalRouterMap = {
     "/publish-manage/unpublished": <Unpublished/>,
     "/publish-manage/published": <Published/>,
     "/publish-manage/sunset": <Sunset/>,
-    "/news-manage/preview/:id": <NewsPreview/>, /* 为什么就是没有显示？？？ */
+    "/news-manage/preview/:id": <NewsPreview/>, 
+    "/news-manage/update/:id": <NewsUpdate/>,
+
 
 
 }
