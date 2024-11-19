@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import{ Button, Table, Modal } from 'antd'
 import axios from 'axios' 
 import {DeleteOutlined, EditOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const { confirm } = Modal;
 
-export default function NewsDraft() {
+export default function NewsDraft(props) {
   // datasource也就是数据应当做成状态，因为我们的权限是动态改变的，根据不同的角色
-  const [dataSource, setdataSource] = useState([])
+  const [dataSource, setdataSource] = useState([]) 
   const{username} = JSON.parse(localStorage.getItem("token")) /* 从localStorage中获取token，解构出来的是一个对象，对象中包含了用户的信息 */
+  const navigate = useNavigate()  /* useNavigate 导航到某个位置 或者-1表示退后一步 */
 
   useEffect(()=>{
     axios.get(`http://localhost:5000/news?author=${username}&auditState=0&_embed=category`).then(res=>{
@@ -16,6 +18,8 @@ export default function NewsDraft() {
       setdataSource(list)
     })
   },[username])
+
+
 
 
 
@@ -52,7 +56,11 @@ export default function NewsDraft() {
       title: '操作',
       render: (item) => ( /* 这里的item就是render函数的形参,so item就是dataSource中的每一行数据，是第一层对象 为什么？因为不用dataIndex,直接用item antd的Table组件会自动遍历dataSource中的每一行数据，并将每一行数据作为render函数的形参 */
         <div>
-          <Button type="primary" shape="circle" icon={<EditOutlined />} />
+          <Button type="primary" shape="circle" icon={<EditOutlined />} onClick={()=>{
+            navigate(`/news-manage/update/${item.id}`) /* 点击编辑按钮跳转到编辑页面 */
+
+          }} />
+
          
           <Button type="primary" shape="circle" icon={<DeleteOutlined />} 
           onClick={()=>confirmMethod(item)}

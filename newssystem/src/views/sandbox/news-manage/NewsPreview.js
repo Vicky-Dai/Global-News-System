@@ -7,7 +7,7 @@ import moment from 'moment'
 
 
 export default function NewsPreview(props) {
-  const { id } = useParams();
+  const { id } = useParams(); /* useParams returns an object of key/value pairs of the dynamic params from the current URL |||What is dynamic params? the ${} in URL */
   const [newsInfo, setnewsInfo] = useState(null)
 
   useEffect(()=>{
