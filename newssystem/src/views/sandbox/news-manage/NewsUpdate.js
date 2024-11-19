@@ -69,7 +69,7 @@ export default function NewsUpdate() {
             }) /* 已有数据再次打开，设置表单的值 */
             // const list = res.data console.log(list)
             // console.log(params)
-            setContent(content)
+            setContent(content) /* 设置NewsUpdate 父组件状态，传给子组件NewsEditor */
         })
     }, [id])
   
@@ -198,9 +198,10 @@ export default function NewsUpdate() {
   
             <div className={currentStep===1?'': style.active}>
               <NewsEditor getContent={(value)=>{
-                  // console.log(value)
+                  console.log("getcontent value:", value)
                   setContent(value)
               }} content={content}></NewsEditor>
+              {/* NewsEditor 组件的父组件是 NewsUpdate。NewsUpdate 组件通过 props 向 NewsEditor 组件传递了 getContent 回调函数和 content 属性。 */}
             </div>
             <div className={currentStep===2?'': style.active}></div>
   
