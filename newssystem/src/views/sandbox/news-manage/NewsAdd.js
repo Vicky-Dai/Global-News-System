@@ -21,7 +21,7 @@ export default function NewsAdd(props) {
   const handleNext = () => {
     if(currentStep===0){
       NewsForm.current.validateFields().then(res=>{
-        // console.log(res, "NewsForm.current") /* form的数据打印  */
+        console.log( "NewsForm.current ",NewsForm.current.validateFields()) /* form的数据打印  */
         setformInfo(res)
         setcurrentStep(currentStep+1)
         // console.log(User)
@@ -183,7 +183,7 @@ export default function NewsAdd(props) {
             <NewsEditor getContent={(value)=>{
                 // console.log(value)
                 setContent(value)
-            }}></NewsEditor>
+            }}></NewsEditor> {/* 初始add只是用于收集属性，但是加了Update组件之后，NewsEditor 有一个useEffect，会跟随content改变而执行，但是初始是空的所以报错 */}
           </div>
           <div className={currentStep===2?'': style.active}></div>
 
@@ -196,7 +196,7 @@ export default function NewsAdd(props) {
                 {
                   currentStep === 2 && <span>
                     <Button type="primary" onClick={()=>handleSave(0)}>保存草稿箱</Button>
-                    <Button danger onClick={()=>handleSave(1)}>提交审核</Button>
+                    <Button danger onClick={()=>handleSave(1)}>提交审核</Button> {/* 这里的dangger 表示需要注意和警告 */}
                   </span>
                 }
                 {

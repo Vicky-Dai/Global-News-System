@@ -62,7 +62,8 @@ export default function NewsUpdate() {
 
     useEffect(() => {
         axios.get(`http://localhost:5000/news/${id}?author=admin&auditState=0&_embed=category`).then(res=>{
-            let {title, categoryId, content} = res.data
+            let {title, categoryId, content} = res.data /* 很好用的结构方法，把取回来的data对象拆出来自己想要用的部分 */
+            console.log("what is res.data here",res.data)
             NewsForm.current.setFieldsValue({
               title,
               categoryId
@@ -74,19 +75,17 @@ export default function NewsUpdate() {
     }, [id])
   
     const handleSave = (auditState) => {
-      axios.post('/news',{
+      axios.patch(`/news/${id}`,{ /* 找到更新的路径，patch数据只要展开然后写里面改了的就可以 */  /* 目前感觉是这里有问题 导致update后无法preview */ 
         ...formInfo,
         /* "title": "千锋教育",
         "categoryId" :  3,  这俩从formInfo来*/
         "content": content,
-        "region": User.region?User.region:"全球", /* true就显示region，false（为空）就是全球 */
-        "author": User.username,
         "roleId": User.roleId,
         "auditState": auditState, /* 0草稿箱 1待审核 2审核通过 3审核驳回 */
-        "publishState": 0, /* 默认未发布 */
-        "createTime": Date.now(), /* 自动获取当前时间 */
-        "star": 0,
-        "view": 0,
+        // "publishState": 0, /* 默认未发布 */
+        // "createTime": Date.now(), /* 自动获取当前时间 */
+        // "star": 0,
+        // "view": 0,
         // "id": "1", id post自增长
         // "publishTime": 0 /* 还没发布 */
       }).then(res=>{
