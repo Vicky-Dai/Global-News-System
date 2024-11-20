@@ -65,11 +65,28 @@ export default function NewsDraft(props) {
           <Button type="primary" shape="circle" icon={<DeleteOutlined />} 
           onClick={()=>confirmMethod(item)}
           />
-           <Button type="primary" shape="circle" icon={<UploadOutlined />} />
+           <Button type="primary" shape="circle" icon={<UploadOutlined />} 
+           onClick={()=>handleCheck(item.id)}/>
 
         </div>
     ),},
   ];
+
+  const handleCheck = (id) => {
+    axios.patch(`http://localhost:5000/news/${id}`,{
+      auditState: 1 /* 当前路径下的auditState进行改变 */
+    }).then(res=>{
+      navigate('/audit-manage/list') /* 跳转页面到审核列表 */
+
+      // api.info({ /* 一个简单的提示 */
+      //   message: ` 通知 `,
+      //   description:
+      //     `您可以到${auditState===0?'草稿箱':'审核列表'}中查看您的新闻`,
+      //   placement:'bottomRight',
+      // });
+      // openNotification('bottomRight') /* 为什么弹不出来？？ */
+    })
+  }
 
 
   const confirmMethod = (item) => {
