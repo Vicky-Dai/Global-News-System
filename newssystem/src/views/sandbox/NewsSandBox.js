@@ -18,9 +18,9 @@ export default function NewsSandBox(){
    
     useEffect(() => {
       NProgress.start()
-      console.log("nprogress运行了") /* 这个放在useEffect外面就会产生，仅仅done一次然后一直显示着进度条，我目前认为是因为在initial render的时候，react认为必须要有这个成分 */
+    //   console.log("nprogress运行了") /* 这个放在useEffect外面就会产生，仅仅done一次然后一直显示着进度条，我目前认为是因为在initial render的时候，react认为必须要有这个成分 */
       NProgress.done()
-      console.log("nprogress done了1111")  /* ？？？？为什么没有在渲染结束触发done呢  目前发现的问题是，路由重定向之后，只会渲染和重新执行定向的组件，比如home，但是这里的代码似乎是不会在执行的，我的两个log在切换页面的时候都没有打印*/
+    //   console.log("nprogress done了1111")  /* ？？？？为什么没有在渲染结束触发done呢  目前发现的问题是，路由重定向之后，只会渲染和重新执行定向的组件，比如home，但是这里的代码似乎是不会在执行的，我的两个log在切换页面的时候都没有打印*/
     },[location]) /* 这个是每次修改路由的时候，触发了外层路由，重新render NewsSandBox，就触发一次这个进度条 */
     
 

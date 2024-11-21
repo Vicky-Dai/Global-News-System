@@ -91,7 +91,7 @@ export default function SideMenu(props){ /* Menu是SideMenu的子组件，可以
   const renderMenu = (menuList) =>{ /* renderMenu 函数的作用是生成菜单项的结构 这个函数负责输出一个数组，在最终渲染的时候会被嵌入到Menu组件中 这个数组中的元素是 React 组件，可以直接渲染在 JSX 中。*/  /* 在你的 renderMenu 函数中，你的主要任务是根据传入的菜单数据（如 menuList）生成相应的菜单项（Menu.Item 和 SubMenu）。这个函数负责遍历菜单数据并输出正确的组件结构。 当你将生成的组件插入到 Menu 中时，Ant Design 负责将这些组件渲染到 DOM 中。*/
     return menuList.map(item=>{ /* 箭头函数作为回调函数 外层函数map遍历数组每一个对象 */
       if(item.children?.length>0 && checkPermission(item) ){ /* 奇妙小用法item.children? 这?代表如果前面的为假就不会执行后面的 */ /* 这里children要做判断的原因是首页那一栏没有children不需要做折叠效果，但是递归会导致对空children访问.length会报错，所以要加一个?来进行判断 */
-        // console.log("第一次挂载的时候获取了token的rights", rights)
+        console.log("children", item.children)
         return <SubMenu key={item.key} icon={iconList[item.key]} title={item.title}>
           {renderMenu(item.children)} {/* 终止条件在没有children 走下面 */}  {/* 这些 JSX 元素会作为 SubMenu 的 children() 被渲染 */} {/* 注意递归这里，checkPermission可以直接影响到children级别 */}
         </SubMenu> /* 在JSX语法中嵌入JS表达式 {} */
