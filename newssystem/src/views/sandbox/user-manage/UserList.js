@@ -64,7 +64,7 @@ export default function UserList() {
     {
       title: '区域',
       dataIndex: 'region', /* 表示会把region放到第一列中 对应上面datasource的属性 */ /* 'region' 是一个字符串，它告诉代码要从数据源中使用名为 region 的属性。这是一个键，和对象的属性名对应。 */
-      filters: [
+      filters: [  /* 一个小筛选功能，比如只看亚洲或者哪里 */
         ...regionList.map(item=>({  /* 使用扩展运算符 ... 将 map() 的结果数组“展开”到 filters 数组中。这样做的好处是将转换后的对象直接作为 filters 数组的元素。
           如果不使用 ...，filters 会变成一个嵌套数组，因为 map() 返回的是一个数组。 */
           text:item.title,

@@ -34,8 +34,6 @@ const LocalRouterMap = {
     "/news-manage/preview/:id": <NewsPreview/>, 
     "/news-manage/update/:id": <NewsUpdate/>,
 
-
-
 }
 /* 创建一个本地对象，后端给返回/home，前端就知道要加载Home */
 

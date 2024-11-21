@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import{ Button, Table, Modal } from 'antd'
+import{ Button, Table, Modal, notification } from 'antd'
 import axios from 'axios' 
 import {DeleteOutlined, EditOutlined, ExclamationCircleOutlined, UploadOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
@@ -84,7 +84,11 @@ export default function NewsDraft(props) {
       //     `您可以到${auditState===0?'草稿箱':'审核列表'}中查看您的新闻`,
       //   placement:'bottomRight',
       // });
-      // openNotification('bottomRight') /* 为什么弹不出来？？ */
+      notification.info({
+        message: `通知`,
+        description: `您可以到审核列表中查看您的新闻`,
+        placement: 'bottomRight'
+      })
     })
   }
 
