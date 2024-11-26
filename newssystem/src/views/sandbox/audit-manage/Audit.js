@@ -25,7 +25,8 @@ export default function Audit() {
 
     const handlePass = (item) => {
       axios.patch(`/news/${item.id}`,{
-        auditState: 2
+        auditState: 2,
+        publishState: 1
       }).then(res=>{
         setdataSource(dataSource.filter(data=>data.id !== item.id)) /* 过滤掉当前的item */
         console.log("通过成功")
@@ -90,13 +91,6 @@ export default function Audit() {
           </div>
       ),},
     ];
-
-
-
-
-
-
-
 
 
     return (
