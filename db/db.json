@@ -704,11 +704,12 @@
       "author": "admin",
       "roleId": "1",
       "auditState": 2,
-      "publishState": 1,
+      "publishState": 2,
       "createTime": 1638090992481,
       "star": 0,
       "view": 0,
-      "id": "19"
+      "id": "19",
+      "publishTime": 1732576863239
     },
     {
       "id": "c301",
@@ -830,8 +831,8 @@
       "region": "全球",
       "author": "admin",
       "roleId": "1",
-      "auditState": 3,
-      "publishState": 0,
+      "auditState": 2,
+      "publishState": 1,
       "createTime": 1732045502047,
       "star": 0,
       "view": 0
@@ -900,7 +901,7 @@
       "region": "北美洲",
       "author": "可爱的宝宝",
       "roleId": "2",
-      "auditState": 1,
+      "auditState": 2,
       "publishState": 0,
       "createTime": 1732146719742,
       "star": 0,
