@@ -31,8 +31,8 @@ export default function NewsPublished(props) {
       title: '操作',
       render: (item) => ( /* 这里的item就是render函数的形参,so item就是dataSource中的每一行数据，是第一层对象 为什么？因为不用dataIndex,直接用item antd的Table组件会自动遍历dataSource中的每一行数据，并将每一行数据作为render函数的形参 */
         <div>
-          <Button>button</Button>
-
+          {props.button(item.id)} {/* 加了小括号箭头函数执行了，直接执行得到的就是button组件，调用父组件的回调函数，并把参数传过去 */}
+          {/* 这里button里面有callback function，通过这种方式实现了子component向父component通信 */}
         </div>
     ),},
   ];

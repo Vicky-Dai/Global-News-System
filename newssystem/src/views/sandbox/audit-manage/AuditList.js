@@ -37,7 +37,7 @@ export default function AuditList() {
     navigate(`/news-manage/update/${item.id}`)
   }
 
-  const handlePublish = (item) => {
+  const handlePublish = (item) => { /* 发布功能 */
     axios.patch(`/news/${item.id}`,{ /* 找到更新的路径，patch数据只要展开然后写里面改了的就可以 */  /* 目前感觉是这里有问题 导致update后无法preview */ 
       "publishState": 2,
       "publishTime": Date.now()
