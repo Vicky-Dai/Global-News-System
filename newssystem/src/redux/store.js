@@ -1,4 +1,5 @@
-import {createStore, combineReducers} from 'redux'
+import { combineReducers} from 'redux'
+import { legacy_createStore as createStore} from 'redux'
 import { CollapsedReducer } from './reducers/CollapsedReducer';
 
 
@@ -15,3 +16,5 @@ export default store
 store.dispatch()
 sotre.subscribe()
 */
+
+/* 接受props.changeCollapsed()的返回值，然后在交给reducers处理（遍历找到对应的reducer）  */
