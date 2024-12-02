@@ -18,3 +18,5 @@ sotre.subscribe()
 */
 
 /* 接受props.changeCollapsed()的返回值，然后在交给reducers处理（遍历找到对应的reducer）  */
+
+/* 这里是redux结构的起始 */

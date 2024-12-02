@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { Layout, Menu, } from 'antd'; 
-import{ useNavigate, useLocation } from 'react-router-dom' /* 引入useNavigate 这个hook 方便跳转 确保你的组件能够访问到 props.history */
+import{ useNavigate, useLocation, useParams } from 'react-router-dom' /* 引入useNavigate 这个hook 方便跳转 确保你的组件能够访问到 props.history */
 import {
     UploadOutlined,
     UserOutlined,
@@ -8,7 +8,16 @@ import {
   } from '@ant-design/icons'
 import './index.css'  
 import axios from 'axios'
+import {connect} from 'react-redux'  /* 引入connect函数，把UI组件包装成容器组件 */
 
+function withRouter(Component) {
+  return (props) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const params = useParams();
+    return <Component {...props} navigate={navigate} location={location} params={params} />;
+  };
+}
 
 
 const { Sider } = Layout; /* 解构sider */  /* const不能提升 所以一定写在前面 */
@@ -59,7 +68,7 @@ const iconList ={ /* 创建一个本地的iconlist 对象解构  保证后端路
 
 
 
-export default function SideMenu(props){ /* Menu是SideMenu的子组件，可以直接用menu的props，sidemenu也可以被导入别的父组件进行使用 */
+function SideMenu(props){ /* Menu是SideMenu的子组件，可以直接用menu的props，sidemenu也可以被导入别的父组件进行使用 */
   // console.log("第一次挂载之后的token值",localStorage.getItem("token"))
 
   const {role:{rights}} = JSON.parse(localStorage.getItem("token"))  
@@ -112,7 +121,7 @@ export default function SideMenu(props){ /* Menu是SideMenu的子组件，可以
   // console.log(openKeys)
 
   return( /*  这个部分是 SideMenu 组件的 UI 结构。它定义了组件渲染的外观和布局。*/
-        <Sider trigger={null} collapsible collapsed={false} > {/* Sider 是从layout对象中解构出来的属性或组件 这样就可以直接用这个名称  collapsible可折叠的 */}
+        <Sider trigger={null} collapsible collapsed={props.isCollapsed} > {/* Sider 是从layout对象中解构出来的属性或组件 这样就可以直接用这个名称  collapsible可折叠的 */}
           <div style ={{display:"flex", height:"100%","flexDirection":"column"}}>  {/* 弹性盒，控制主元素，剩余空间自适应，高度是父元素的100% 主轴改成垂直 */}
             <div className="logo">全球新闻发布管理系统</div>{/* 。在React的JSX语法中，className代替了原生HTML中的class。这是因为class是JavaScript的保留关键字，为避免冲突  类选择器使用一个点（.）符号来定义样式  这里logo的css已经固定好了*/}
             <div style={{flex:1, "overflow":"auto"}}> {/* flex1 占满剩下空间 如有多个flex1 平均分配  overflow滚动条只有这一部分自己滚动 */}
@@ -182,6 +191,15 @@ export default function SideMenu(props){ /* Menu是SideMenu的子组件，可以
     )
   
 }
+
+const mapStateToProps = ({CollapsedReducer:{isCollapsed}}) => ({
+  isCollapsed  /* 和Top里面的区别就是省略了return的简写法，但是注意细节外面要包小括号，不然当成对象处理了 */
+})
+
+
+export default connect(mapStateToProps)(withRouter(SideMenu))
+
+
 // 新版react 已经弃用 withRouter高阶组件HOC export default withRouter(SideMenu) /* 这里的withRouter是react-router-dom提供的高阶组件，可以让路由信息直接传递给组件 */
 
 // export const withRouter = (SideMenu) =>{

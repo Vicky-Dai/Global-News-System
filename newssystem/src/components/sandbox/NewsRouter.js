@@ -1,6 +1,7 @@
 /* 新闻系统登录之后的路由，动态展示 , 这个组件其实就是登陆之后页面除了side和top之外中间的部分*/
 import React, { useEffect, useState } from 'react'
 import {Routes,Route,Navigate} from 'react-router-dom'
+import { Spin } from 'antd'
 import Home from '../../views/sandbox/home/Home' /* src/views/sandbox/home */
 import UserList from '../../views/sandbox/user-manage/UserList'  /* 这个路径简写要点 1·从当前文件出发 newsrouter，走到和目标路径共同的父级 2.当前文件的文件夹不算一级 ../是当前文件夹的上一级（比如当前文件夹所在的sandbox，../是components,再../是src),然后到了父级，再向下找目标文件*/
 import RoleList from '../../views/sandbox/right-manage/RoleList'
@@ -63,35 +64,37 @@ export default function NewsRouter() {
 
   
     return (
-    <div>
-        {/*路由的作用是通过路径改变而重新加载新的组件 这里不同组件在不同路径（自己定义路径 在浏览器就能在这个路径找到  注意在后续链接跳转的时候 路径要保持一致） 继续写路由  */}  
-        <Routes>
-            {
-                backRouteList.map(item=>
-                    // <Route path={item.key} key={item.key}
-                    // element={LocalRouterMap[item.key]} ></Route>
+        <Spin size="large" spinning = {false} > {/* 加载中动画，数据请求前动，数据请求后消失就可以，这么多数据请求的地方要用axios拦截 */}
+            <div>
+                {/*路由的作用是通过路径改变而重新加载新的组件 这里不同组件在不同路径（自己定义路径 在浏览器就能在这个路径找到  注意在后续链接跳转的时候 路径要保持一致） 继续写路由  */}  
+                <Routes>
                     {
-                        if(checkRoute(item) && checkUserPermission(item)){ /* 第一个函数判断当前权限列表管理是否打开 第二个函数是当前用户是否有这个权限 */
-                            // console.log("checkRoute item", item)
-                            return (<Route path={item.key} key={item.key}
-                                element={LocalRouterMap[item.key]} ></Route>)
+                        backRouteList.map(item=>
+                            // <Route path={item.key} key={item.key}
+                            // element={LocalRouterMap[item.key]} ></Route>
+                            {
+                                if(checkRoute(item) && checkUserPermission(item)){ /* 第一个函数判断当前权限列表管理是否打开 第二个函数是当前用户是否有这个权限 */
+                                    // console.log("checkRoute item", item)
+                                    return (<Route path={item.key} key={item.key}
+                                        element={LocalRouterMap[item.key]} ></Route>)
 
-                        }
-                        return null  /* 原先是这样，没有key 所以报错(<Route path="/noPermission" element={<NoPermission />} />) */
-                    } /* [NoPermission] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment> */
-                )
-            } {/* 路由是模糊匹配的， */}
-            <Route path="/" element={<Navigate to="/home" />} />
-            {  
-            backRouteList.length>0 &&<Route path="*" element={<NoPermission />} />
-            }
-            
-            {/* <Route path="/home" element={<Home />} />
-            <Route path="/right-manage/right/list" element={<RightList />} />
-            <Route path="/right-manage/role/list" element={<RoleList />} />
-            <Route path="/user-manage/list" element={<UserList />} />  */}
-        </Routes>
-    </div>
+                                }
+                                return null  /* 原先是这样，没有key 所以报错(<Route path="/noPermission" element={<NoPermission />} />) */
+                            } /* [NoPermission] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment> */
+                        )
+                    } {/* 路由是模糊匹配的， */}
+                    <Route path="/" element={<Navigate to="/home" />} />
+                    {  
+                    backRouteList.length>0 &&<Route path="*" element={<NoPermission />} />
+                    }
+                    
+                    {/* <Route path="/home" element={<Home />} />
+                    <Route path="/right-manage/right/list" element={<RightList />} />
+                    <Route path="/right-manage/role/list" element={<RoleList />} />
+                    <Route path="/user-manage/list" element={<UserList />} />  */}
+                </Routes>
+            </div>
+        </Spin>
   )
 }
 

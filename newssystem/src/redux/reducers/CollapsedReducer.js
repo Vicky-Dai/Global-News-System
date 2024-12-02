@@ -24,3 +24,5 @@ export const CollapsedReducer = (prevState = {
 3. store中有很多reducer, 匹配相应reducer
 4. 在reducer中解构type做case分支，确定是这个，然后深复制取反，然后返回newstate
 5. 返回之后connect感应到状态改变，有订阅mapDispatchToProps把变化传给孩子，孩子组件收到折叠(mapStateToProps)，从而状态改变，达到想要的效果 */
+
+

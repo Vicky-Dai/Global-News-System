@@ -88,7 +88,7 @@ connect(
 //mapDispatchToProps 把dispatch方法映射成一个props，通过属性把它分发出去
 )(被包装的组件)
 */
-const mapStateToProps = ({CollapsedReducer:{isCollapsed}}) => { /* 从state中结构出来CollapsedReducer大对象，然后继续结构isCollapsed属性 */
+const mapStateToProps = ({CollapsedReducer:{isCollapsed}}) => { /* 从state中解构出来CollapsedReducer大对象，然后继续结构isCollapsed属性   接收到的 state 参数是 Redux store 中的整个状态树*/
   // console.log("state是什么", state)
   // console.log("isCollapsed",state.CollapsedReducer.isCollapsed)
   return {
@@ -114,6 +114,8 @@ const mapDispatchToProps = { /* 把dispatch映射成props 从而修改state，�
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TopHeader))
+/* 当你使用 connect 时，它会订阅 Redux store。当 store 中的状态发生变化时，React-Redux 会自动调用 mapStateToProps 函数，将最新的状态树传入作为参数。 */
+
 /**
  * 这里的用法是JS函数链式调用和高阶函数组合使用，因此有两个小括号并列
  * 1. 第一个小括号调用connect函数，connect 是 Redux 提供的一个高阶函数（函数返回另一个函数）。
@@ -136,6 +138,25 @@ Reducers: 根据接收到的 action 更新 Redux 的 state。
 React Components: Redux 的 state 变化会导致组件重新渲染。 */
 
 
-/* Redux payload:  期望是点击按钮，按钮转换方向
+/* 
+Redux设置步骤：
+1. store创建
+2. reducer创建
+3. connect连接, 把状态（store）和dispatch映射到props( mapStateToProps 映射 mapDispatchToProps 映射)
+4. dispatch action 通过props调用 传递到reducer (action是一个对象，有type属性 这里就和下面payload连接起来了) 
+
+
+Redux payload:  期望是点击按钮，按钮转换方向
 1. UI被点击，onClick监听触发changeCollapsed，用了redux之后不是自己管理自己的状态变化了，而是交给父组件props统一管理
-2.  */
+2. props.changeCollapsed() 通过父组件帮忙dispatch到store中  这个 dispatch 方法实际上是 Redux 提供的，它会负责将 action 分发到 store，并触发 reducer。
+3. reducer 的返回值会自动成为 Redux store 的新的状态 state （redux核心机制之一）
+4. connect 会自动监听 Redux store 的变化：当你使用 connect 将组件与 Redux 绑定时，connect 会订阅 Redux store 的变化，如果有变化，就触发组件重新渲染 （Redux store 的状态是全局的，不属于任何单独的组件。）
+*/
+
+/* 如何理解store全局变量？怎么来的，又有什么作用
+1. 点击按钮后，props.increment() 被调用。
+2. mapDispatchToProps 中的函数触发 dispatch，将 INCREMENT action 派发到 Redux store。
+3. Redux 的 reducer 处理这个 action，更新 store 中的状态。
+4. Redux store 通知所有订阅者，重新调用 mapStateToProps。
+5. mapStateToProps 的返回值变化，React-Redux 更新组件的 props，触发重新渲染。
+*/
