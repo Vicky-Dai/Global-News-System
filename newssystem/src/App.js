@@ -5,7 +5,8 @@ import NewsSandBox from './views/sandbox/NewsSandBox'
 import Home from './views/sandbox/home/Home'
 import {Provider} from 'react-redux'
 import IndexRouter from './router/IndexRouter'
-import store from './redux/store'
+import {persistor, store} from './redux/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   
@@ -16,10 +17,15 @@ function App() {
       //   <Route path = "/*" element = {localStorage.getItem('token') ? <NewsSandBox /> : <Navigate to="/login" /> /* React的两种组件语法：<new></new>标准组件标签，复合标准JSX写法 */ } >
       //   </Route> {/*上面token哪里 看看这个localStorage里面 token key有没有对应的值  */} 
       // </Routes>
-      <Provider store={store}> {/* 跨级通信通过context上下文通信 connect */}
-        <IndexRouter></IndexRouter>
 
-      </Provider>
+      <PersistGate loading={null} persistor={persistor}>
+        
+      
+        <Provider store={store}> {/* 跨级通信通过context上下文通信 connect */}
+          <IndexRouter></IndexRouter>
+
+        </Provider>
+      </PersistGate> /* 这个是redux persist的东西，用于整体状态保存管理，比如刷新之后侧边栏不再会展开再回去 */
       
     
   )

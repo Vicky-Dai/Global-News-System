@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import {Routes,Route,Navigate} from 'react-router-dom'
 import { Spin } from 'antd'
+import { connect } from 'react-redux'
 import Home from '../../views/sandbox/home/Home' /* src/views/sandbox/home */
 import UserList from '../../views/sandbox/user-manage/UserList'  /* 这个路径简写要点 1·从当前文件出发 newsrouter，走到和目标路径共同的父级 2.当前文件的文件夹不算一级 ../是当前文件夹的上一级（比如当前文件夹所在的sandbox，../是components,再../是src),然后到了父级，再向下找目标文件*/
 import RoleList from '../../views/sandbox/right-manage/RoleList'
@@ -38,7 +39,7 @@ const LocalRouterMap = {
 }
 /* 创建一个本地对象，后端给返回/home，前端就知道要加载Home */
 
-export default function NewsRouter() {
+ function NewsRouter(props) {
     
     const [backRouteList, setbackRouteList] = useState([])
     useEffect(() => {
@@ -64,7 +65,7 @@ export default function NewsRouter() {
 
   
     return (
-        <Spin size="large" spinning = {false} > {/* 加载中动画，数据请求前动，数据请求后消失就可以，这么多数据请求的地方要用axios拦截 */}
+        <Spin size="large" spinning = {props.isLoading} > {/* 加载中动画，数据请求前动，数据请求后消失就可以，这么多数据请求的地方要用axios拦截 */}
             <div>
                 {/*路由的作用是通过路径改变而重新加载新的组件 这里不同组件在不同路径（自己定义路径 在浏览器就能在这个路径找到  注意在后续链接跳转的时候 路径要保持一致） 继续写路由  */}  
                 <Routes>
@@ -98,6 +99,11 @@ export default function NewsRouter() {
   )
 }
 
+const mapStateToProps = ({LoadingReducer:{isLoading}}) => ({
+    isLoading  /* 和Top里面的区别就是省略了return的简写法，但是注意细节外面要包小括号，不然当成对象处理了 */
+  })
+
+export default connect(mapStateToProps)(NewsRouter)
 
 /* 动态创建，这样根据不同的用户只显示有权限的 */
 
