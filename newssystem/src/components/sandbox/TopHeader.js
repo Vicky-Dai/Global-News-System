@@ -34,7 +34,8 @@ function TopHeader(props){ /* 通过props获取父组件传递过来的数据 */
         // dispatchEvent()
         // console.log("props a2", props)
         props.changeCollapsed() /* 通过props 让父组件帮忙dispatch,根据下面定义有返回值，返回到store中 */
-    }
+    /*  这个方法是通过 mapDispatchToProps 映射到组件的 props 中的。它会发送一个 Redux action 到 Redux store。 */
+     }
 
     const {
       token: { colorBgContainer, borderRadiusLG },
@@ -150,8 +151,12 @@ Redux payload:  期望是点击按钮，按钮转换方向
 1. UI被点击，onClick监听触发changeCollapsed，用了redux之后不是自己管理自己的状态变化了，而是交给父组件props统一管理
 2. props.changeCollapsed() 通过父组件帮忙dispatch到store中  这个 dispatch 方法实际上是 Redux 提供的，它会负责将 action 分发到 store，并触发 reducer。
 3. reducer 的返回值会自动成为 Redux store 的新的状态 state （redux核心机制之一）
-4. connect 会自动监听 Redux store 的变化：当你使用 connect 将组件与 Redux 绑定时，connect 会订阅 Redux store 的变化，如果有变化，就触发组件重新渲染 （Redux store 的状态是全局的，不属于任何单独的组件。）
+4. connect 会自动监听 Redux store 的变化：当你使用 connect 将组件与 Redux 绑定时，connect 会订阅 Redux store 的变化，当 Redux store 的状态发生变化时，React-Redux 会自动调用 mapStateToProps 函数，将最新的状态传递给组件的 props。然后，React 会重新渲染组件，以反映最新的状态变化。（Redux store 的状态是全局的，不属于任何单独的组件。）
 */
+/* 提炼一下思路：配置先把redux概念图上的 store reducer component action配置好，前两者新创建，后两者本来就有（第四个本来就有但是redux要通过props进行控制），通路通好 （两个map方法） 
+利用这些完成整体上对于components的控制，从component出发UI点击，（UI本身绑定onClick这样的方法）props方法被触发，发action(从mapDispatchToProps通路发给store), store一整个状态树，接受了action并帮助匹配适合的reducer，reducer给store返回新的状态值，
+redux监控到状态变化，（mapStateToProps接收新的state，返回给component) 
+整体控制总结，括号里面是通路方法，但是有一部分通路被方块概念给负责了，比如store和reducer的关系*/
 
 /* 如何理解store全局变量？怎么来的，又有什么作用
 1. 点击按钮后，props.increment() 被调用。

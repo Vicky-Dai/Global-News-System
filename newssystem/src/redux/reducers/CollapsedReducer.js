@@ -1,6 +1,6 @@
 export const CollapsedReducer = (prevState = {
     isCollapsed: false /* reducer管理初始状态 */
-}, action) => { 
+}, action) => {  
     console.log("action是什么", action)
     let { type } = action
     switch(type){
