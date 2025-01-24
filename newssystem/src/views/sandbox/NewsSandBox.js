@@ -8,7 +8,7 @@ import NewsRouter from '../../components/sandbox/NewsRouter'
 
 import NProgress from 'nprogress'
 import'nprogress/nprogress.css'
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 const { Content } = Layout;
 
 
@@ -16,6 +16,10 @@ export default function NewsSandBox(){
     // const [location, setlocation] = useState([]) /* 用于获取当前的location */   
     const location = useLocation();
    
+    useEffect(() => {
+        console.log("NewsSandBox 渲染");
+    }, []); /* 测试login页面navigate问题 */
+
     useEffect(() => {
       NProgress.start()
     //   console.log("nprogress运行了") /* 这个放在useEffect外面就会产生，仅仅done一次然后一直显示着进度条，我目前认为是因为在initial render的时候，react认为必须要有这个成分 */
@@ -40,7 +44,7 @@ export default function NewsSandBox(){
                         backgroundColor: 'white'                      
                     }}
                     >
-                    
+                    <Outlet />
             
                     {/* 路由的作用是通过路径改变而重新加载新的组件 这里不同组件在不同路径（自己定义路径 在浏览器就能在这个路径找到  注意在后续链接跳转的时候 路径要保持一致） 继续写路由   
                     <Routes>

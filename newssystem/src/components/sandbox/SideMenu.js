@@ -82,7 +82,7 @@ function SideMenu(props){ /* Menu是SideMenu的子组件，可以直接用menu�
 
   useEffect(()=>{
     axios.get("http://localhost:5000/rights?_embed=children").then(res=>{/* 9.24ebbin复习了.then promise  */
-      console.log(res.data)
+      // console.log(res.data)
       setMenu(res.data)
       // console.log("setMenu执行了")
     })
