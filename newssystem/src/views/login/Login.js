@@ -5,26 +5,29 @@ import './Login.css'
 import axios from 'axios'
 import{ useNavigate, useLocation } from 'react-router-dom' 
 
+
 export default function Login(props) {
-    console.log(props)
+    // console.log(props)
     
     const navigate = useNavigate()
 
     const onFinish = (values) =>{
-        console.log(values)
+        console.log("values是", values)
         axios.get(`http://localhost:5000/users?username=${values.username}&password=${values.password}&roleState=true&_embed=role`).then(
             res=>{
-                // console.log(res.data)
+                console.log(res.data)
                 if(res.data.length===0){
                     message.error("用户名或密码不匹配")
                 }else{
                     localStorage.setItem("token",JSON.stringify(res.data[0]))
-                    navigate("/home")
+                    // console.log("token是否被设置成功",localStorage.getItem("token"))
+                    // console.log("登录成功，导航到 /home");
+                    return navigate("/home")
                 }
             }
         )
     }
-
+/* values:当用户填写表单并点击提交按钮时，Ant Design 会自动收集表单中各个 <Form.Item> 的 name 属性和对应的输入值，生成一个对象，并将这个对象传递给 onFinish 方法作为参数。 */
 
     return(
         <div style = {{background:'rgb(35,39,65)', height:"100%"}}>
@@ -62,7 +65,7 @@ export default function Login(props) {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button class="full-width-button" block type="primary" htmlType="submit">
+                        <Button className="full-width-button" block type="primary" htmlType="submit"> {/* Button 的 onClick 属性 提交按钮的 htmlType="submit" 会自动触发表单的 onFinish 方法 */}
                         Log in
                         </Button>
                         or <a href="">Register now!</a>

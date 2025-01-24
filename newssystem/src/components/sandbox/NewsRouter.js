@@ -74,6 +74,7 @@ const LocalRouterMap = {
                             // <Route path={item.key} key={item.key}
                             // element={LocalRouterMap[item.key]} ></Route>
                             {
+                                console.log("checkRoute item", item)
                                 if(checkRoute(item) && checkUserPermission(item)){ /* 第一个函数判断当前权限列表管理是否打开 第二个函数是当前用户是否有这个权限 */
                                     // console.log("checkRoute item", item)
                                     return (<Route path={item.key} key={item.key}

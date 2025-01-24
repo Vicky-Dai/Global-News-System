@@ -1,7 +1,7 @@
 export const LoadingReducer = (prevState = {
     isLoading: true /* reducer管理初始状态 */
 }, action) => { 
-    console.log("action是什么", action)
+    // console.log("action是什么", action)
     let { type, payload } = action
     switch(type){
         case"changeLoading":
