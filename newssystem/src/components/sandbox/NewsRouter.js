@@ -1,6 +1,8 @@
 /* 新闻系统登录之后的路由，动态展示 , 这个组件其实就是登陆之后页面除了side和top之外中间的部分*/
 import React, { useEffect, useState } from 'react'
 import {Routes,Route,Navigate} from 'react-router-dom'
+import { Spin } from 'antd'
+import { connect } from 'react-redux'
 import Home from '../../views/sandbox/home/Home' /* src/views/sandbox/home */
 import UserList from '../../views/sandbox/user-manage/UserList'  /* 这个路径简写要点 1·从当前文件出发 newsrouter，走到和目标路径共同的父级 2.当前文件的文件夹不算一级 ../是当前文件夹的上一级（比如当前文件夹所在的sandbox，../是components,再../是src),然后到了父级，再向下找目标文件*/
 import RoleList from '../../views/sandbox/right-manage/RoleList'
@@ -15,6 +17,8 @@ import Unpublished from '../../views/sandbox/publish-manage/Unpublished'
 import Published from '../../views/sandbox/publish-manage/Published'
 import Sunset from '../../views/sandbox/publish-manage/Sunset'
 import axios from 'axios'
+import NewsPreview from '../../views/sandbox/news-manage/NewsPreview'
+import NewsUpdate from '../../views/sandbox/news-manage/NewsUpdate'
 
 const LocalRouterMap = {
     "/home":<Home/>,
@@ -28,13 +32,14 @@ const LocalRouterMap = {
     "/audit-manage/list": <AuditList/>,
     "/publish-manage/unpublished": <Unpublished/>,
     "/publish-manage/published": <Published/>,
-    "/publish-manage/sunset": <Sunset/>
-
+    "/publish-manage/sunset": <Sunset/>,
+    "/news-manage/preview/:id": <NewsPreview/>, 
+    "/news-manage/update/:id": <NewsUpdate/>,
 
 }
 /* 创建一个本地对象，后端给返回/home，前端就知道要加载Home */
 
-export default function NewsRouter() {
+ function NewsRouter(props) {
     
     const [backRouteList, setbackRouteList] = useState([])
     useEffect(() => {
@@ -51,7 +56,7 @@ export default function NewsRouter() {
     const{role:{rights}} = JSON.parse(localStorage.getItem("token"))
 
     const checkRoute = (item) => {
-        return LocalRouterMap[item.key] && item.pagepermisson /* 检查权限列表里的删除和编辑开关（pagepermission） */
+        return LocalRouterMap[item.key] && (item.pagepermisson||item.routepermisson) /* 检查权限列表里的删除和编辑开关（pagepermission） */
     } /* 这样即使是我直接在导航栏里面用URL进去，如果没有权限也进不去，因为这个route根本不会创建（下方），也就不会显示 */
 
     const checkUserPermission = (item) => {  /* 检查当前用户是否有这个权限 */
@@ -60,37 +65,46 @@ export default function NewsRouter() {
 
   
     return (
-    <div>
-        {/*路由的作用是通过路径改变而重新加载新的组件 这里不同组件在不同路径（自己定义路径 在浏览器就能在这个路径找到  注意在后续链接跳转的时候 路径要保持一致） 继续写路由  */}  
-        <Routes>
-            {
-                backRouteList.map(item=>
-                    // <Route path={item.key} key={item.key}
-                    // element={LocalRouterMap[item.key]} ></Route>
+        <Spin size="large" spinning = {props.isLoading} > {/* 加载中动画，数据请求前动，数据请求后消失就可以，这么多数据请求的地方要用axios拦截 */}
+            <div>
+                {/*路由的作用是通过路径改变而重新加载新的组件 这里不同组件在不同路径（自己定义路径 在浏览器就能在这个路径找到  注意在后续链接跳转的时候 路径要保持一致） 继续写路由  */}  
+                <Routes>
                     {
-                        if(checkRoute(item) && checkUserPermission(item)){ /* 第一个函数判断当前权限列表管理是否打开 第二个函数是当前用户是否有这个权限 */
-                            return (<Route path={item.key} key={item.key}
-                                element={LocalRouterMap[item.key]} ></Route>)
+                        backRouteList.map(item=>
+                            // <Route path={item.key} key={item.key}
+                            // element={LocalRouterMap[item.key]} ></Route>
+                            {
+                                console.log("checkRoute item", item)
+                                if(checkRoute(item) && checkUserPermission(item)){ /* 第一个函数判断当前权限列表管理是否打开 第二个函数是当前用户是否有这个权限 */
+                                    // console.log("checkRoute item", item)
+                                    return (<Route path={item.key} key={item.key}
+                                        element={LocalRouterMap[item.key]} ></Route>)
 
-                        }
-                        return (<Route path="/noPermission" element={<NoPermission />} />)
-                    } /* [NoPermission] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment> */
-                )
-            } {/* 路由是模糊匹配的， */}
-            <Route path="/" element={<Navigate to="/home" />} />
-            {  
-            backRouteList.length>0 &&<Route path="*" element={<NoPermission />} />
-            }
-            
-            {/* <Route path="/home" element={<Home />} />
-            <Route path="/right-manage/right/list" element={<RightList />} />
-            <Route path="/right-manage/role/list" element={<RoleList />} />
-            <Route path="/user-manage/list" element={<UserList />} />  */}
-        </Routes>
-    </div>
+                                }
+                                return null  /* 原先是这样，没有key 所以报错(<Route path="/noPermission" element={<NoPermission />} />) */
+                            } /* [NoPermission] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment> */
+                        )
+                    } {/* 路由是模糊匹配的， */}
+                    <Route path="/" element={<Navigate to="/home" />} />
+                    {  
+                    backRouteList.length>0 &&<Route path="*" element={<NoPermission />} />
+                    }
+                    
+                    {/* <Route path="/home" element={<Home />} />
+                    <Route path="/right-manage/right/list" element={<RightList />} />
+                    <Route path="/right-manage/role/list" element={<RoleList />} />
+                    <Route path="/user-manage/list" element={<UserList />} />  */}
+                </Routes>
+            </div>
+        </Spin>
   )
 }
 
+const mapStateToProps = ({LoadingReducer:{isLoading}}) => ({
+    isLoading  /* 和Top里面的区别就是省略了return的简写法，但是注意细节外面要包小括号，不然当成对象处理了 */
+  })
+
+export default connect(mapStateToProps)(NewsRouter)
 
 /* 动态创建，这样根据不同的用户只显示有权限的 */
 
@@ -123,3 +137,6 @@ handleOk 中，你修改的是角色的权限数据（rights），这些权限�
 
 JSX 本质上是 JavaScript 的语法糖，用于描述 UI 结构。在 JSX 中，必须返回一个表达式（JavaScript 表达式），而 if 语句本身是控制结构，不能作为一个表达式直接返回。如果你希望在 JSX 中进行条件渲染，必须使用 JavaScript 表达式（如三元运算符或逻辑与运算符）来替代 if。
 component文件中return 语句中的部分就是 JSX 语法，用于描述 React 组件的 UI 结构。除了 return 之外，React 组件中的其他部分通常使用的是 JavaScript 语法。React 组件本质上是一个 JavaScript 函数，它结合了 JSX 和 JavaScript 逻辑。*/
+
+/* 在你的代码中，backRouteList.map 的逻辑只会在 NewsRouter 组件重新渲染时执行。路由切换时，React Router 会根据当前路径匹配相应的 Route 组件，并渲染对应的组件，而不会重新执行 backRouteList.map 的逻辑，除非 NewsRouter 组件本身重新渲染。
+当用户点击不同的路由链接时，React Router 会根据当前路径匹配相应的 Route 组件，并渲染对应的组件。这个过程是由 React Router 内部机制处理的，而不是重新执行 backRouteList.map 的逻辑。 */
